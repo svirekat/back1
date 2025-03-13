@@ -1,0 +1,50 @@
+body {
+    width: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #e6e6fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("https://img.freepik.com/premium-vector/dolphin-vector-seamless-pattern-ocean-background_629110-71.jpg");
+    background-repeat: repeat;
+    background-size: 40%;
+}
+.container {
+  margin-left: 25%;
+  margin-right: 25%;
+  background-color: rgb(135, 185, 218);
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.content p {
+    margin-bottom: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-size: larger;
+    background-color: aliceblue;
+}
+.content img {
+    margin-top: 15px;
+}
+.content div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+footer {
+    background-color: rgb(135, 185, 218);
+    text-align: center; 
+    padding: 20px; 
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+}
