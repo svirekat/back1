@@ -1,0 +1,26 @@
+.error {
+    color: red;
+}
+html {
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #e6e6fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("https://avatars.mds.yandex.net/i?id=d7b0cfe1f19201268b631e09d5b33f54d5686e0c-8977890-images-thumbs&n=13");
+  background-repeat: repeat;
+  background-size: 10%;
+}
+
+#hform {
+  border: 3px solid slateblue;
+  border-radius: 1%;
+  padding: 6%;
+  background-color: #ae89d3;
+  margin-bottom: 40px;
+  text-align: center;
+}
