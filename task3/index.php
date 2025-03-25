@@ -1,13 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-  if (!empty($_GET['save'])) {
-    print('Спасибо, результаты сохранены.');
-  }
-
-}
-
 function sanitize($data) {
   $data = trim($data);    // удаляет пробелы в начале и конце строки
   $data = stripslashes($data);    //удаляет экранирующие слеши (\) из строки
