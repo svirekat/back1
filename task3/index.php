@@ -1,11 +1,12 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
 
-//if ($_SERVER['REQUEST_METHOD'] == 'GET') {
- // if (!empty($_GET['save'])) {
-  //  print('Спасибо, результаты сохранены.');
-  //}
-//}
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+  if (!empty($_GET['save'])) {
+    print('Спасибо, результаты сохранены.');
+  }
+
+}
 
 function sanitize($data) {
   $data = trim($data);    // удаляет пробелы в начале и конце строки
@@ -123,5 +124,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "</div>";
   }
 }
-
-header('Location: ?save=1');
+else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    if (!empty($_GET['save'])) {
+      print('Спасибо, результаты сохранены.');
+    }
+}
+?>
