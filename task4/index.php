@@ -224,18 +224,21 @@ function get_cookie_languages() {
             </div>
             <div>
                 <label>Любимые языки программирования:</label><br>
-                <select name="languages[]" multiple required>
+                
                 <?php
                 $languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
-                $selected_languages = get_cookie_languages();
+                $selected_languages = get_cookie_languages(); ?>
+                <select name="['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go']" 
+                multiple required>
+                <?php   
                 foreach ($languages as $language): ?>
-                    <option type="checkbox" id="<?php echo $language; ?>" name="languages[]" value="<?php echo $language; ?>"
+                    <option id="<?php echo $language; ?>" name="languages[]" value="<?php echo $language; ?>"
                         <?php if (in_array($language, $selected_languages)) echo 'checked'; ?>
                         <?php if (isset($errors['languages'])): ?>class="error-field"<?php endif; ?>></option>
-                    <label for="<?php echo $language; ?>"><?php echo $language; ?></label><br>
+                    <label for="<?php echo $language; ?>"><?php echo $language; ?></label>
                 <?php endforeach; ?>
+                </select>
                 <?php if (isset($errors['languages'])): ?>
-                    </select>
                     <span class="error"><?php echo $errors['languages']; ?></span><br>
                 <?php endif; ?>
             </div>
