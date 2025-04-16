@@ -163,7 +163,16 @@ function get_cookie_languages() {
         }
 
         if (isset($_COOKIE['errors'])) {
+            $errors = unserialize($_COOKIE['errors']);
+            echo "<div class='error'>";
+            // foreach ($errors as $key => $value) {
+            //     echo "<p>$value</p>";
+            // }
+            echo "</div>";
+            // Удаляем cookie с ошибками сразу после отображения
             setcookie('errors', '', time() - 3600);
+        } else {
+            $errors = [];
         } 
     ?>
     <div id="hform">
