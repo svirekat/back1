@@ -229,7 +229,7 @@ function get_cookie_languages() {
                 $languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
                 $selected_languages = get_cookie_languages(); 
                 $error_class = isset($errors['languages']) ? 'error-field' : ''; ?>
-                <select name="languages[]" multiple required class="<?php echo $error_class; ?>"></select>
+                <select name="languages[]" multiple required class="<?php echo $error_class; ?>">
                     <?php   
                     foreach ($languages as $language): ?>
                         <option value="<?php echo $language; ?>"
