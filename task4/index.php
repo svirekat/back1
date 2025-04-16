@@ -247,6 +247,7 @@ function get_cookie_languages() {
                 <?php endif; ?>
             </div>
             <div>
+                <br>
                 <input type="checkbox" id="agreement" name="agreement" <?php if (isset($_POST['agreement'])) echo 'checked'; ?>
                     <?php if (isset($errors['agreement'])): ?>class="error-field"<?php endif; ?>>
                 <label for="agreement">С контрактом ознакомлен(а)</label><br>
