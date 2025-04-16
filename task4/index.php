@@ -195,7 +195,7 @@ function get_cookie_languages() {
                 <?php endif; ?>
             </div>
             <div>
-                <label for="email">Email:</label>
+                <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" value="<?php echo get_cookie_value('email'); ?>"
                     <?php if (isset($errors['email'])): ?>class="error-field"<?php endif; ?>><br>
                 <?php if (isset($errors['email'])): ?>
@@ -223,17 +223,19 @@ function get_cookie_languages() {
                 <?php endif; ?>
             </div>
             <div>
-                <label>Языки программирования:</label><br>
+                <label>Любимые языки программирования:</label><br>
+                <select name="languages[]" multiple required>
                 <?php
                 $languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
                 $selected_languages = get_cookie_languages();
                 foreach ($languages as $language): ?>
-                    <input type="checkbox" id="<?php echo $language; ?>" name="languages[]" value="<?php echo $language; ?>"
+                    <option type="checkbox" id="<?php echo $language; ?>" name="languages[]" value="<?php echo $language; ?>"
                         <?php if (in_array($language, $selected_languages)) echo 'checked'; ?>
-                        <?php if (isset($errors['languages'])): ?>class="error-field"<?php endif; ?>>
+                        <?php if (isset($errors['languages'])): ?>class="error-field"<?php endif; ?>></option>
                     <label for="<?php echo $language; ?>"><?php echo $language; ?></label><br>
                 <?php endforeach; ?>
                 <?php if (isset($errors['languages'])): ?>
+                    </select>
                     <span class="error"><?php echo $errors['languages']; ?></span><br>
                 <?php endif; ?>
             </div>
@@ -247,7 +249,7 @@ function get_cookie_languages() {
             <div>
                 <input type="checkbox" id="agreement" name="agreement" <?php if (isset($_POST['agreement'])) echo 'checked'; ?>
                     <?php if (isset($errors['agreement'])): ?>class="error-field"<?php endif; ?>>
-                <label for="agreement">Согласен с условиями</label><br>
+                <label for="agreement">С контрактом ознакомлен(а)</label><br>
                 <?php if (isset($errors['agreement'])): ?>
                     <span class="error"><?php echo $errors['agreement']; ?></span><br>
                 <?php endif; ?>
