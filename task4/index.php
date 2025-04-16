@@ -157,24 +157,14 @@ function get_cookie_languages() {
 <body>
 
     <?php
-        // Вывод сообщений об успехе
+        // Вывод сообщения об успехе
         if (isset($_GET['success']) && $_GET['success'] == 1) {
             echo "<p style='color:green;'>Данные успешно сохранены!</p>";
         }
 
-        // Вывод сообщений об ошибках
         if (isset($_COOKIE['errors'])) {
-            $errors = unserialize($_COOKIE['errors']);
-            echo "<div class='error'>";
-            foreach ($errors as $key => $value) {
-                echo "<p>$value</p>";
-            }
-            echo "</div>";
-            // Удаляем cookie с ошибками сразу после отображения
             setcookie('errors', '', time() - 3600);
-        } else {
-            $errors = [];
-        }
+        } 
     ?>
     <div id="hform">
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -257,7 +247,7 @@ function get_cookie_languages() {
                     <span class="error"><?php echo $errors['agreement']; ?></span><br>
                 <?php endif; ?>
             </div>
-            <input type="submit" value="Отправить">
+            <input type="submit" value="Сохранить">
 
         </form>
     </div>
