@@ -227,16 +227,15 @@ function get_cookie_languages() {
                 
                 <?php
                 $languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
-                $selected_languages = get_cookie_languages(); ?>
-                <select name="['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go']" 
-                multiple required>
-                <?php   
-                foreach ($languages as $language): ?>
-                    <option id="<?php echo $language; ?>" name="languages[]" value="<?php echo $language; ?>"
-                        <?php if (in_array($language, $selected_languages)) echo 'checked'; ?>
-                        <?php if (isset($errors['languages'])): ?>class="error-field"<?php endif; ?>></option>
-                    <label for="<?php echo $language; ?>"><?php echo $language; ?></label>
-                <?php endforeach; ?>
+                $selected_languages = get_cookie_languages(); 
+                $error_class = isset($errors['languages']) ? 'error-field' : ''; ?>
+                <select name="languages[]" multiple required class="<?php echo $error_class; ?>"></select>
+                    <?php   
+                    foreach ($languages as $language): ?>
+                        <option value="<?php echo $language; ?>"
+                            <?php if (in_array($language, $selected_languages)) echo ' selected'; ?>>
+                            <?php echo $language; ?> </option>
+                    <?php endforeach; ?>
                 </select>
                 <?php if (isset($errors['languages'])): ?>
                     <span class="error"><?php echo $errors['languages']; ?></span><br>
