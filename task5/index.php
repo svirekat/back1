@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $dob = sanitize($_POST['dob']);
             $gender = sanitize($_POST['gender']);
             $bio = sanitize($_POST['bio']);
-            $stmt = $pdo->prepare("UPDATE users SET fio = ?, phone = ?, email = ?, dob = ?, gender = ?, bio = ? WHERE id = ?");
+            $stmt = $pdo->prepare("UPDATE users SET fio = ?, phone = ?, email = ?, dob = ?, gender = ?, bio = ? WHERE user_id = ?");
             $stmt->execute([$fio, $phone, $email, $dob, $gender, $bio, $_SESSION['user_id']]); //Используем id из сессии
           //Остальной код обработки остается тем же
             $languages = $_POST['languages'];
