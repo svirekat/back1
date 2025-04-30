@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($user && password_verify($password, $user['password'])) {
             session_start();
-            $_SESSION['user_id'] = $user['id']; // Используем id пользователя в сессии
+            $_SESSION['user_id'] = $user['user_id']; // Используем id пользователя в сессии
             // Перенаправляем на форму редактирования данных после успешной авторизации
             header("Location: " . $_SERVER['PHP_SELF']);
             exit();
@@ -179,7 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 //Авторизация после успешной регистрации
                 session_start();
-                $stmt = $pdo->prepare("SELECT id FROM users WHERE login = ?");
+                $stmt = $pdo->prepare("SELECT user_id FROM users WHERE login = ?");
                 $stmt->execute([$login]);
                 $user_id = $stmt->fetchColumn();
                 $_SESSION['user_id'] = $user_id;
