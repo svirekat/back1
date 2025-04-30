@@ -152,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Вставка данных в таблицу users
                 $stmt = $pdo->prepare("INSERT INTO users (login, password, fio, phone, email, dob, gender, bio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt->execute([$login, $hashedPassword, $fio, $phone, $email, $dob, $gender, $bio]);
-
+                $user_id = $pdo->lastInsertId(); //получаем id текущего пользователя
                 // Вставка данных в таблицу users_languages
                 $languages = $_POST['languages'];
                 foreach ($languages as $language) {
