@@ -234,8 +234,7 @@ function get_cookie_languages() {
         </form>
         <?php
     }
-    else { ?>// Если авторизован
-        
+    else { ?>
         <div id="hform">
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div>
