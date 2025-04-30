@@ -98,8 +98,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $bio = sanitize($_POST['bio']);
 
           // Вставка данных в таблицу users
-          $stmt = $pdo->prepare("INSERT INTO users (fio, phone, email, dob, gender, bio) VALUES (?, ?, ?, ?, ?, ?)");  // Подготовленный запрос
-          $stmt->execute([$fio, $phone, $email, $dob, $gender, $bio]);
+          $stmt = $pdo->prepare("INSERT INTO users (login, password, fio, phone, email, dob, gender, bio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+          $stmt->execute([$login, $hashedPassword, $fio, $phone, $email, $dob, $gender, $bio]);
           $user_id = $pdo->lastInsertId(); //получаем id текущего пользователя
           // Вставка данных в таблицу users_languages
           $languages = $_POST['languages'];
