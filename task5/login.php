@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['user_id']; // Устанавливаем ID пользователя в сессии
-        header("Location: edit.php"); // Перенаправляем на страницу редактирования данных
+        header("Location: newibdex.php"); // Перенаправляем на страницу редактирования данных
         exit();
     } else {
         echo "<p style='color:red;'>Неверный логин или пароль.</p>";
