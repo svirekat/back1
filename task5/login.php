@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Вход</title>
 </head>
 <body>
-    <form method="POST" action="newindex.php">
+    <form method="POST" action="edit.php">
         <label for="login">Логин:</label>
         <input type="text" id="login" name="login" required>
         <br>
