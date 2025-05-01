@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           session_start();
           $_SESSION['user_id'] = $user_id;
           // Перенаправление на страницу входа или редактирования
-          header("Location: login.php");
+          //header("Location: login.php");
           exit();
 
       } catch (PDOException $e) {
