@@ -84,6 +84,12 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
                 <select name="languages[]" id="languages" multiple required>
                     <?php
                     $available_languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
+                    // Получаем информацию о языках пользователя
+                    $languages = isset($user['languages']) ? explode(',', $user['languages']) : [];
+                    // Если $languages не является массивом, инициализируем его как пустой массив
+                    if (!is_array($languages)) {
+                        $languages = [];
+                    }
                     foreach ($available_languages as $language):
                     ?>
                         <option value="<?php echo $language; ?>" <?php if (in_array($language, $languages)) echo 'selected'; ?>>
