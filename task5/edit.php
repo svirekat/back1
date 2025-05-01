@@ -15,8 +15,7 @@ function get_cookie_languages() {
     return isset($_COOKIE['languages']) ? unserialize($_COOKIE['languages']) : [];
 }
 ?>
-// Отображение данных пользователя и формы для их редактирования
-?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
