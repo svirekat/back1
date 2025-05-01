@@ -11,10 +11,10 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-function get_cookie_languages() {
-    return isset($_COOKIE['languages']) ? unserialize($_COOKIE['languages']) : [];
-}
-?>
+// function get_cookie_languages() {
+//     return isset($_COOKIE['languages']) ? unserialize($_COOKIE['languages']) : [];
+// }
+// ?>
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -69,7 +69,7 @@ function get_cookie_languages() {
                     <span class="error"><?php echo $errors['gender']; ?></span><br>
                 <?php endif; ?>
             </div>
-            <div>
+<!--             <div>
                 <label>Любимые языки программирования:</label><br>
                 
                 <?php
@@ -87,7 +87,7 @@ function get_cookie_languages() {
                 <?php if (isset($errors['languages'])): ?>
                     <span class="error"><?php echo $errors['languages']; ?></span><br>
                 <?php endif; ?>
-            </div>
+            </div> -->
             <div>
                 <label for="bio">Биография:</label>
                 <textarea id="bio" name="bio" <?php if (isset($errors['bio'])): ?>class="error-field"<?php endif; ?>><?php echo htmlspecialchars($user['bio']); ?></textarea><br>
