@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Подготовка и выполнение SQL-запроса для обновления данных
     $stmt = $pdo->prepare("UPDATE users SET fio = ?, phone = ?, email = ?, dob = ?, gender = ?, bio = ? WHERE user_id = ?");
     $stmt->execute([$fio, $phone, $email, $dob, $gender, $bio, $user_id]);
-    echo "<pstyle='color:green;'> Данные успешно обновлены!</p>";
+    echo "<p style='color:green;'> Данные успешно обновлены!</p>";
 } else {
     // Если форма не была отправлена, перенаправление на edit.php
     header("Location: edit.php");
