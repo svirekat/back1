@@ -5,15 +5,15 @@ html {
   overflow-x: hidden;
 }
 body {
-  margin: 0;
+  margin-top: 10%;
   font-family: sans-serif;
   background-color: #e6e6fa;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("https://avatars.mds.yandex.net/i?id=d7b0cfe1f19201268b631e09d5b33f54d5686e0c-8977890-images-thumbs&n=13");
+  background-image: url("fon.jpg");
   background-repeat: repeat;
-  background-size: 10%;
+  background-size: 40%;
 }
 
 #hform {
@@ -24,8 +24,28 @@ body {
   margin-top: 40px;
   text-align: center;
 }
+#sendbutton {
+  border: 2px solid #3f1469;
+  border-radius: 5%;
+  margin-top: 10%;
+  padding: 2%;
+  background-color: #562cad;
+  color: #c2aed7;
+}
+.h2 {
+  color: #380967;
+}
 .button-container {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 30%;
+}
+button {
+  border: 2px solid #491281;
+    border-radius: 5%;
+    background-color: #b3a0e5;
+    margin-bottom: 10px;
+    padding: 5%;
+    font-size: medium;
+    color: #0e0e2d;
 }
