@@ -24,6 +24,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<h2>Редактирование данных</h2>
 <form id="form" action="update.php" method="POST">
             <div>
                 <label for="fio">ФИО:</label>
