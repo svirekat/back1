@@ -80,6 +80,19 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
                 <?php endif; ?>
             </div>
             <div>
+                <label>Языки программирования:</label><br>
+                <select name="languages[]" id="languages" multiple required>
+                    <?php
+                    $available_languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
+                    foreach ($available_languages as $language):
+                    ?>
+                        <option value="<?php echo $language; ?>" <?php if (in_array($language, $languages)) echo 'selected'; ?>>
+                            <?php echo $language; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div>
                 <br>
                 <input type="checkbox" id="agreement" name="agreement" <?php if (isset($_POST['agreement'])) echo 'checked'; ?>
                     <?php if (isset($errors['agreement'])): ?>class="error-field"<?php endif; ?>>
