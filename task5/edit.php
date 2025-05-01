@@ -25,6 +25,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 </head>
 <body>
 <h2>Редактирование данных</h2>
+<div id="hform">
 <form id="form" action="update.php" method="POST">
             <div>
                 <label for="fio">ФИО:</label>
@@ -90,5 +91,6 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
             <input type="submit" value="Сохранить">
 
         </form>
+</div>
 </body>
 </html>
