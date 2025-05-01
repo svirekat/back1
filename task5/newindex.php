@@ -1,7 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
 require_once 'db_connection.php';
-
 function sanitize($data) {
   $data = trim($data);    // удаляет пробелы в начале и конце строки
   $data = stripslashes($data);    //удаляет экранирующие слеши (\) из строки
@@ -42,11 +41,13 @@ function validate_form($data) {
   // Валидация ЯП
   $languages = isset($data['languages']) ? $data['languages'] : [];
   $allowed_languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
-  foreach ($languages as $language) {
-      if (!in_array($language, $allowed_languages)) {
-          $errors['languages'] = "Недопустимый язык программирования.";
-          break; 
-      }
+  if (is_array($languages)) {
+    foreach ($languages as $language) {
+        if (!in_array($language, $allowed_languages)) {
+            $errors['languages'] = "Недопустимый язык программирования.";
+            break; 
+        }
+    }
   }
   // Валидация биографии
   $bio = sanitize($data['bio']);
@@ -74,11 +75,18 @@ function generateLoginAndPassword() {
     $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*"), 0, 12);
     return [$login, $password];
 }
-
+// Функция для получения значения из Cookie (с проверкой на существование)
+function get_cookie_value($name) {
+    return isset($_COOKIE[$name]) ? $_COOKIE[$name] : '';
+}
+// Функция для получения значения из Cookie для языков (с десериализацией)
+function get_cookie_languages() {
+    return isset($_COOKIE['languages']) ? unserialize($_COOKIE['languages']) : [];
+}
 // Обработка POST-запроса
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $errors = validate_form($_POST);
-  if (empty($errors)) {
+    $errors = validate_form($_POST);
+    if (empty($errors)) {
       try {
           list($login, $password) = generateLoginAndPassword();
           $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Хэшируем пароль
@@ -136,14 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
   }
 
-// Функция для получения значения из Cookie (с проверкой на существование)
-function get_cookie_value($name) {
-    return isset($_COOKIE[$name]) ? $_COOKIE[$name] : '';
-}
-// Функция для получения значения из Cookie для языков (с десериализацией)
-function get_cookie_languages() {
-    return isset($_COOKIE['languages']) ? unserialize($_COOKIE['languages']) : [];
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -228,17 +229,19 @@ function get_cookie_languages() {
             </div>
             <div>
                 <label>Любимые языки программирования:</label><br>
-                
                 <?php
                 $languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
                 $selected_languages = get_cookie_languages(); 
-                $error_class = isset($errors['languages']) ? 'error-field' : ''; ?>
-                <select name="languages[]" multiple required class="<?php echo $error_class; ?>">
-                    <?php   
-                    foreach ($languages as $language): ?>
-                        <option value="<?php echo $language; ?>"
-                            <?php if (in_array($language, $selected_languages)) echo ' selected'; ?>>
-                            <?php echo $language; ?> </option>
+                // Обеспечиваем, что $selected_languages — массив
+                if (!is_array($selected_languages)) {
+                    $selected_languages = []; // Инициализируем как пустой массив
+                }
+                ?>
+                <select name="languages[]" id="languages" multiple required>
+                    <?php foreach ($languages as $language): ?>
+                        <option value="<?php echo $language; ?>" <?php if (in_array($language, $selected_languages)) echo 'selected'; ?>>
+                            <?php echo $language; ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
                 <?php if (isset($errors['languages'])): ?>
