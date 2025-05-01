@@ -40,7 +40,7 @@ function validate_form($data) {
       $errors['gender'] = "Некорректное значение пола.";
   }
   // Валидация ЯП
-  $languages = isset($_POST['languages']) ? $_POST['languages'] : [];
+  $languages = isset($data['languages']) ? $data['languages'] : [];
   $allowed_languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
   foreach ($languages as $language) {
       if (!in_array($language, $allowed_languages)) {
