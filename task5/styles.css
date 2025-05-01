@@ -24,3 +24,8 @@ body {
   margin-top: 40px;
   text-align: center;
 }
+.button-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
