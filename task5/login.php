@@ -25,14 +25,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Вход</title>
 </head>
 <body>
-    <form method="POST" action="">
-        <label for="login">Логин:</label>
-        <input type="text" id="login" name="login" required>
-        <br>
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <input type="submit" value="Войти">
-    </form>
+    <div id="hform">
+        <form method="POST" action="">
+            <label for="login">Логин:</label>
+            <input type="text" id="login" name="login" required>
+            <br>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <input type="submit" value="Войти">
+        </form>
+    </div>
 </body>
 </html>
