@@ -70,25 +70,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
                     <span class="error"><?php echo $errors['gender']; ?></span><br>
                 <?php endif; ?>
             </div>
-<!--             <div>
-                <label>Любимые языки программирования:</label><br>
-                
-                <?php
-                $languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
-                $selected_languages = get_cookie_languages(); 
-                $error_class = isset($errors['languages']) ? 'error-field' : ''; ?>
-                <select name="languages[]" multiple required class="<?php echo $error_class; ?>">
-                    <?php   
-                    foreach ($languages as $language): ?>
-                        <option value="<?php echo $language; ?>"
-                            <?php if (in_array($language, $selected_languages)) echo ' selected'; ?>>
-                            <?php echo $language; ?> </option>
-                    <?php endforeach; ?>
-                </select>
-                <?php if (isset($errors['languages'])): ?>
-                    <span class="error"><?php echo $errors['languages']; ?></span><br>
-                <?php endif; ?>
-            </div> -->
+
             <div>
                 <label for="bio">Биография:</label>
                 <textarea id="bio" name="bio" <?php if (isset($errors['bio'])): ?>class="error-field"<?php endif; ?>><?php echo htmlspecialchars($user['bio']); ?></textarea><br>
