@@ -264,7 +264,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span class="error"><?php echo $errors['agreement']; ?></span><br>
                 <?php endif; ?>
             </div>
-            <input type="submit" value="Сохранить">
+            <input id="sendbutton" type="submit" value="Сохранить">
 
         </form>
     </div>
