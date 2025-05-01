@@ -4,6 +4,12 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
+function sanitize($data) {
+  $data = trim($data);    
+  $data = stripslashes($data);    
+  $data = htmlspecialchars($data);    
+  return $data;
+}
 // Проверка, была ли отправлена форма
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
