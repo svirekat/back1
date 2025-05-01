@@ -40,7 +40,7 @@ function validate_form($data) {
       $errors['gender'] = "Некорректное значение пола.";
   }
   // Валидация ЯП
-  $languages = $data['languages'];
+  $languages = isset($_POST['languages']) ? $_POST['languages'] : [];
   $allowed_languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
   foreach ($languages as $language) {
       if (!in_array($language, $allowed_languages)) {
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $stmt->execute([$login, $hashedPassword, $fio, $phone, $email, $dob, $gender, $bio]);
           $user_id = $pdo->lastInsertId(); //получаем id текущего пользователя
           // Вставка данных в таблицу users_languages
-          $languages = $_POST['languages'];
+          $languages = isset($_POST['languages']) ? $_POST['languages'] : [];
           foreach ($languages as $language) {
             $stmt_lang = $pdo->prepare("SELECT lang_id FROM langs WHERE lang_name = ?");
             $stmt_lang->execute([$language]);
