@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
+require_once 'db_connection.php';
 
 function sanitize($data) {
   $data = trim($data);    // удаляет пробелы в начале и конце строки
@@ -72,15 +73,6 @@ function generateLoginAndPassword() {
     $login = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 8);
     $password = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*"), 0, 12);
     return [$login, $password];
-}
-
-$user = 'u68857'; 
-$password = '9940611'; 
-try {
-    $pdo = new PDO('mysql:host=localhost;dbname=u68857', $user, $password,
-        [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-} catch (PDOException $e) {
-    die("<p style='color:red;'>Ошибка подключения к базе данных: " . $e->getMessage() . "</p>");
 }
 
 // Обработка POST-запроса
