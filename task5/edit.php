@@ -107,7 +107,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
                     <span class="error"><?php echo $errors['agreement']; ?></span><br>
                 <?php endif; ?>
             </div>
-            <input type="submit" value="Сохранить">
+            <input id="sendbutton" type="submit" value="Сохранить">
 
         </form>
 </div>
