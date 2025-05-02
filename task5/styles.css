@@ -57,3 +57,8 @@ button {
 #greentext {
   text-align: center;
 }
+#pl {
+  text-align: center;
+  background-color: #b3a0e5;
+  border-radius: 2px solid #581573;
+}
