@@ -40,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
-        <a class="linktomain" href="mainpage.html">Вернуться на главную страницу</a>
+    <div class="linktomain">
+        <a href="mainpage.html">Вернуться на главную страницу</a>
     </div>
 </body>
 </html>
