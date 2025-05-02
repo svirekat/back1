@@ -29,3 +29,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: edit.php");
     exit();
 }
+?>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование данных</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div>
+        <a href="mainpage.html">Вернуться на главную страницу</a>;
+    </div>
+</body>
+</html>
