@@ -121,6 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           setcookie('languages', '', time() - 3600);
           setcookie('errors', '', time() - 3600);
 
+          echo "<body>";
           echo "<div style='text-align: center;'>
                 <p style='color:green; 
                 font-size: larger;'>
@@ -128,18 +129,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           echo "<div
                     style=' text-align: center;
                     background-color: #b3a0e5;
-                    border-radius: 2px solid #581573;'>
+                    border-radius: 2px solid #581573;
+                    width: 50%'>
                 <p>Ваш логин: " . htmlspecialchars($login) . "</p></div>";
-          echo "<div 
+          echo "<div style='
                     text-align: center;
                     background-color: #b3a0e5;
-                    border-radius: 2px solid #581573;>
+                    border-radius: 2px solid #581573;
+                    width: 50%'>
                 <p>Ваш пароль: " . htmlspecialchars($password) . "</p></div>";
           echo "<div> <a style='
                 text-decoration: none;
                 color: #581573;
                 font-size: medium;'
                 href='mainpage.html'>Вернуться на главную страницу</a> </div>";
+          echo "</body>";
           // Старт сессии и установка user_id
           session_start();
           $_SESSION['user_id'] = $user_id;
