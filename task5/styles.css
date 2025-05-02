@@ -49,9 +49,10 @@ button {
     font-size: medium;
     color: #0e0e2d;
 }
-a {
+.linktomain {
   text-decoration: none;
-  color: #0e0e2d;
+  color: #581573;
+  font-size: medium;
 }
 #greentext {
   text-align: center;
