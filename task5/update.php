@@ -23,7 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Подготовка и выполнение SQL-запроса для обновления данных
     $stmt = $pdo->prepare("UPDATE users SET fio = ?, phone = ?, email = ?, dob = ?, gender = ?, bio = ? WHERE user_id = ?");
     $stmt->execute([$fio, $phone, $email, $dob, $gender, $bio, $user_id]);
-    echo "<p style='color:green;'> Данные успешно обновлены!</p>";
+    echo "<div id='greentext'>
+        <p style='color:green; font-size: larger;'> Данные успешно обновлены!</p>
+        </div>";
 } else {
     // Если форма не была отправлена, перенаправление на edit.php
     header("Location: edit.php");
@@ -39,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div>
-        <a href="mainpage.html">Вернуться на главную страницу</a>;
+        <a href="mainpage.html">Вернуться на главную страницу</a>
     </div>
 </body>
 </html>
