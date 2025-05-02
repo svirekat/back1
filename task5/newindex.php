@@ -121,7 +121,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           setcookie('languages', '', time() - 3600);
           setcookie('errors', '', time() - 3600);
 
-          echo "<body>";
+          echo "<body style='
+                margin-top: 20px;
+                font-family: sans-serif;
+                background-color: #e6e6fa;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-image: url('fon.jpg');
+                background-repeat: repeat;
+                background-size: 40%;>";
           echo "<div style='text-align: center;'>
                 <p style='color:green; 
                 font-size: larger;'>
@@ -129,14 +138,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           echo "<div
                     style=' text-align: center;
                     background-color: #b3a0e5;
-                    border-radius: 2px solid #581573;
+                    border-top: 2px solid #581573;
+                    border-left: 2px solid #581573;
+                    border-right: 2px solid #581573;
                     width: 50%'>
                 <p>Ваш логин: " . htmlspecialchars($login) . "</p></div>";
           echo "<div style='
                     text-align: center;
                     background-color: #b3a0e5;
-                    border-radius: 2px solid #581573;
-                    width: 50%'>
+                    border-bottom: 2px solid #581573;
+                    border-left: 2px solid #581573;
+                    border-right: 2px solid #581573;
+                    width: 50%;
+                    margin-bottom: 10px;'>
                 <p>Ваш пароль: " . htmlspecialchars($password) . "</p></div>";
           echo "<div> <a style='
                 text-decoration: none;
