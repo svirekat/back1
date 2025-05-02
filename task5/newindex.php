@@ -127,6 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Данные успешно сохранены!</p></div>";
           echo "<div id='pl'><p>Ваш логин: " . htmlspecialchars($login) . "</p></div>";
           echo "<div id='pl'><p>Ваш пароль: " . htmlspecialchars($password) . "</p></div>";
+          echo "<div class='linktomain'> <a href='mainpage.html'>Вернуться на главную страницу</a> </div>";
           // Старт сессии и установка user_id
           session_start();
           $_SESSION['user_id'] = $user_id;
