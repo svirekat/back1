@@ -49,3 +49,10 @@ button {
     font-size: medium;
     color: #0e0e2d;
 }
+a {
+  text-decoration: none;
+  color: #0e0e2d;
+}
+#greentext {
+  text-align: center;
+}
