@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div>
-        <a href="mainpage.html">Вернуться на главную страницу</a>
+        <a class="linktomain" href="mainpage.html">Вернуться на главную страницу</a>
     </div>
 </body>
 </html>
