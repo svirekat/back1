@@ -41,7 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div>
-        <a class="linktomain" href="mainpage.html">Вернуться на главную страницу</a>
+        <a style='text-decoration: none;
+                  color: #581573;
+                  font-size: medium;'
+            href="mainpage.html">Вернуться на главную страницу</a>
     </div>
 </body>
 </html>
