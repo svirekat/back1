@@ -121,14 +121,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           setcookie('languages', '', time() - 3600);
           setcookie('errors', '', time() - 3600);
 
-          echo "<p style='color:green;'>Данные успешно сохранены!</p>";
-          echo "<p>Ваш логин: " . htmlspecialchars($login) . "</p>";
-          echo "<p>Ваш пароль: " . htmlspecialchars($password) . "</p>";
+          echo "<div id='greentext'>
+                <p style='color:green; 
+                font-size: larger;'>
+                Данные успешно сохранены!</p></div>";
+          echo "<div id='pl'><p>Ваш логин: " . htmlspecialchars($login) . "</p></div>";
+          echo "<div id='pl'><p>Ваш пароль: " . htmlspecialchars($password) . "</p></div>";
           // Старт сессии и установка user_id
           session_start();
           $_SESSION['user_id'] = $user_id;
-          // Перенаправление на страницу входа или редактирования
-          //header("Location: login.php");
           exit();
 
       } catch (PDOException $e) {
