@@ -1,6 +1,5 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
-session_start();
 require_once 'db_connection.php';
 function sanitize($data) {
   $data = trim($data);    // удаляет пробелы в начале и конце строки
