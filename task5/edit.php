@@ -7,10 +7,23 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
+
 $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+$stmt_user_langs = $pdo->prepare("SELECT lang_id FROM users_languages WHERE user_id = ?");
+$stmt_user_langs->execute([$user_id]);
+$user_langs_ids = $stmt_user_langs->fetchAll(PDO::FETCH_COLUMN); // Получаем массив lang_id
+
+// Получаем соответствие lang_id => lang_name из таблицы langs
+$stmt_langs = $pdo->query("SELECT lang_id, lang_name FROM langs");
+$available_languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
+$lang_map = []; // Ассоциативный массив: lang_id => lang_name
+while ($lang = $stmt_langs->fetch(PDO::FETCH_ASSOC)) {
+    $available_languages[] = $lang['lang_name'];
+    $lang_map[$lang['lang_id']] = $lang['lang_name'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -76,21 +89,19 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
                     <span class="error"><?php echo $errors['bio']; ?></span><br>
                 <?php endif; ?>
             </div>
+
             <div>
                 <label>Языки программирования:</label><br>
                 <select name="languages[]" id="languages" multiple required>
                     <?php
-                    $available_languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
-                    // Получаем информацию о языках пользователя
-                    $languages = isset($user['languages']) ? explode(',', $user['languages']) : [];
-                    // Если $languages не является массивом, инициализируем его как пустой массив
-                    if (!is_array($languages)) {
-                        $languages = [];
-                    }
-                    foreach ($available_languages as $language):
-                    ?>
-                        <option value="<?php echo $language; ?>" <?php if (in_array($language, $languages)) echo 'selected'; ?>>
-                            <?php echo $language; ?>
+                    $stmt_user_langs = $pdo->prepare("SELECT lang_id FROM users_languages WHERE user_id = ?");
+                    $stmt_user_langs->execute([$user_id]);
+                    foreach ($lang_map as $lang_id => $lang_name):
+                        $user_langs_ids = $stmt_user_langs->fetchAll(PDO::FETCH_COLUMN);
+                        $selected = in_array($lang_id, $user_langs_ids) ? 'selected' : '';
+                        ?>
+                        <option value="<?php echo htmlspecialchars($lang_name); ?>" <?php echo $selected; ?>>
+                            <?php echo htmlspecialchars($lang_name); ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
