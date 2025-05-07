@@ -69,19 +69,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = validate_form($_POST);
     if (empty($errors)) {
         try {
-        $user_id = $_SESSION['user_id'];
-        $fio = sanitize($_POST['fio']);
-        $phone = sanitize($_POST['phone']);
-        $email = sanitize($_POST['email']);
-        $dob = sanitize($_POST['dob']);
-        $gender = sanitize($_POST['gender']);
-        $bio = sanitize($_POST['bio']);
-        // Подготовка и выполнение SQL-запроса для обновления данных
-        $stmt = $pdo->prepare("UPDATE users SET fio = ?, phone = ?, email = ?, dob = ?, gender = ?, bio = ? WHERE user_id = ?");
-        $stmt->execute([$fio, $phone, $email, $dob, $gender, $bio, $user_id]);
-        echo "<div id='greentext'>
-            <p style='color:green; font-size: larger;'> Данные успешно обновлены!</p>
-            </div>";
+            $user_id = $_SESSION['user_id'];
+            $fio = sanitize($_POST['fio']);
+            $phone = sanitize($_POST['phone']);
+            $email = sanitize($_POST['email']);
+            $dob = sanitize($_POST['dob']);
+            $gender = sanitize($_POST['gender']);
+            $bio = sanitize($_POST['bio']);
+            // Подготовка и выполнение SQL-запроса для обновления данных
+            $stmt = $pdo->prepare("UPDATE users SET fio = ?, phone = ?, email = ?, dob = ?, gender = ?, bio = ? WHERE user_id = ?");
+            $stmt->execute([$fio, $phone, $email, $dob, $gender, $bio, $user_id]);
+
+            // Удаление cookies с ошибками (если были)
+            setcookie('fio', '', time() - 3600);
+            setcookie('phone', '', time() - 3600);
+            setcookie('email', '', time() - 3600);
+            setcookie('dob', '', time() - 3600);
+            setcookie('gender', '', time() - 3600);
+            setcookie('bio', '', time() - 3600);
+            setcookie('languages', '', time() - 3600);
+            setcookie('errors', '', time() - 3600);
+
+            echo "<div id='greentext'>
+                <p style='color:green; font-size: larger;'> Данные успешно обновлены!</p>
+                </div>";
+            echo "<body style='
+                margin-top: 20px;
+                font-family: sans-serif;
+                background-color: #e6e6fa;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-image: url('fon.jpg');
+                background-repeat: repeat;
+                background-size: 40%;>";
+            echo "<div id='greentext'>
+                <p style='color:green; font-size: larger;'> Данные успешно обновлены!</p>
+                </div>";
+            echo "<div> <a style='
+                text-decoration: none;
+                color: #581573;
+                font-size: medium;'
+                href='mainpage.html'>Вернуться на главную страницу</a> </div>";
+            echo "</body>";
+            session_start();
+            $_SESSION['user_id'] = $user_id;
+            exit();
         } 
         catch (PDOException $e) {
             die("<p style='color:red;'>Ошибка сохранения данных: " . $e->getMessage() . "</p>");
@@ -101,16 +134,3 @@ else {
     exit();
 }
 ?>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Редактирование данных</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div>
-        <a class="linktomain" href="mainpage.html">Вернуться на главную страницу</a>
-    </div>
-</body>
-</html>
