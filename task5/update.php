@@ -71,7 +71,7 @@ function validate_form($data) {
     return $errors;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = validate_form($_POST);
     if (empty($errors)) {
         try {
@@ -130,16 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         exit();
     }
 } 
-else {
-    setcookie('fio', '', time() - 3600);
-    setcookie('phone', '', time() - 3600);
-    setcookie('email', '', time() - 3600);
-    setcookie('dob', '', time() - 3600);
-    setcookie('gender', '', time() - 3600);
-    setcookie('bio', '', time() - 3600);
-    setcookie('languages', '', time() - 3600);
-    setcookie('errors', '', time() - 3600);
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
