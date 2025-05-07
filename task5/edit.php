@@ -11,10 +11,7 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// function get_cookie_languages() {
-//     return isset($_COOKIE['languages']) ? unserialize($_COOKIE['languages']) : [];
-// }
-// ?>
+?>
 
 <!DOCTYPE html>
 <html lang="ru">
