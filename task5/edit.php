@@ -61,7 +61,7 @@ while ($lang = $stmt_langs->fetch(PDO::FETCH_ASSOC)) {
             foreach ($lang_map as $lang_id => $lang_name):
                 $selected = in_array($lang_id, $user_langs_ids) ? 'selected' : ''; // Проверка выбранного языка
             ?>
-                <option value="<?php echo $lang_id; ?>" <?php echo $selected; ?>>
+                <option value="<?php echo $lang_name; ?>" <?php echo $selected; ?>>
                     <?php echo htmlspecialchars($lang_name); ?>
                 </option>
             <?php endforeach; ?>
