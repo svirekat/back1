@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-
+<h2>Редактирование данных</h2>
     <?php
         // Вывод сообщения об успехе
         if (isset($_COOKIE['errors'])) {
