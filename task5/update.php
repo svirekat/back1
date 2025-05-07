@@ -90,9 +90,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             setcookie('languages', '', time() - 3600);
             setcookie('errors', '', time() - 3600);
 
-            echo "<div id='greentext'>
-                <p style='color:green; font-size: larger;'> Данные успешно обновлены!</p>
-                </div>";
             echo "<body style='
                 margin-top: 20px;
                 font-family: sans-serif;
