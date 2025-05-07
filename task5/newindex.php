@@ -84,7 +84,7 @@ function get_cookie_languages() {
     return isset($_COOKIE['languages']) ? unserialize($_COOKIE['languages']) : [];
 }
 // Обработка POST-запроса
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $errors = validate_form($_POST);
     if (empty($errors)) {
       try {
@@ -175,7 +175,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
       }
   }
-
+else {
+          setcookie('fio', '', time() - 3600);
+          setcookie('phone', '', time() - 3600);
+          setcookie('email', '', time() - 3600);
+          setcookie('dob', '', time() - 3600);
+          setcookie('gender', '', time() - 3600);
+          setcookie('bio', '', time() - 3600);
+          setcookie('languages', '', time() - 3600);
+          setcookie('errors', '', time() - 3600);
+}
 
 ?>
 
