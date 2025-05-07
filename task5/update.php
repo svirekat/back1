@@ -124,9 +124,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 } 
-else {
-    // Если форма не была отправлена, перенаправление на edit.php
-    header("Location: edit.php");
-    exit();
-}
 ?>
