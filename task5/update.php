@@ -112,8 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 font-size: medium;'
                 href='mainpage.html'>Вернуться на главную страницу</a> </div>";
             echo "</body>";
-            session_start();
-            $_SESSION['user_id'] = $user_id;
+            
             exit();
         } 
         catch (PDOException $e) {
