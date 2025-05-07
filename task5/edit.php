@@ -88,13 +88,11 @@ while ($lang = $stmt_langs->fetch(PDO::FETCH_ASSOC)) {
                     <span class="error"><?php echo $errors['bio']; ?></span><br>
                 <?php endif; ?>
             </div>
-            
+
             <div>
                 <label>Языки программирования:</label><br>
                 <select name="languages[]" id="languages" multiple required>
                     <?php
-                    $stmt_user_langs = $pdo->prepare("SELECT lang_id FROM users_languages WHERE user_id = ?");
-                    $stmt_user_langs->execute([$user_id]);
                     foreach ($lang_map as $lang_id => $lang_name):
                         $user_langs_ids = $stmt_user_langs->fetchAll(PDO::FETCH_COLUMN);
                         $selected = in_array((int)$lang_id, $user_langs_ids) ? 'selected' : '';
