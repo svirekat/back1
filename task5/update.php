@@ -86,6 +86,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = $pdo->prepare("UPDATE users SET fio = ?, phone = ?, email = ?, dob = ?, gender = ?, bio = ? WHERE user_id = ?");
             $stmt->execute([$fio, $phone, $email, $dob, $gender, $bio, $user_id]);
 
+            $languages = isset($_POST['languages']) ? $_POST['languages'] : [];
+            $stmt_delete = $pdo->prepare("DELETE FROM users_languages WHERE lang_id = ?");
+            $stmt_delete->execute([$user_id]);
+            foreach ($languages as $language) {
+                $stmt_lang = $pdo->prepare("SELECT lang_id FROM langs WHERE lang_name = ?");
+                $stmt_lang->execute([$language]);
+                $lang_result = $stmt_lang->fetch(PDO::FETCH_ASSOC);
+                $lang_id = $lang_result['lang_id'];
+                $stmt_user_lang = $pdo->prepare("INSERT INTO users_languages (user_id, lang_id) VALUES (?, ?)");
+                $stmt_user_lang->execute([$user_id, $lang_id]);
+            }
             // Удаление cookies с ошибками (если были)
             setcookie('fio', '', time() - 3600);
             setcookie('phone', '', time() - 3600);
