@@ -18,7 +18,6 @@ $user_langs_ids = $stmt_user_langs->fetchAll(PDO::FETCH_COLUMN); // Получа
 
 // Получаем соответствие lang_id => lang_name из таблицы langs
 $stmt_langs = $pdo->query("SELECT lang_id, lang_name FROM langs");
-$available_languages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskell', 'Clojure', 'Prolog', 'Scala', 'Go'];
 $lang_map = []; // Ассоциативный массив: lang_id => lang_name
 while ($lang = $stmt_langs->fetch(PDO::FETCH_ASSOC)) {
     $available_languages[] = $lang['lang_name'];
@@ -98,7 +97,7 @@ while ($lang = $stmt_langs->fetch(PDO::FETCH_ASSOC)) {
                     $stmt_user_langs->execute([$user_id]);
                     foreach ($lang_map as $lang_id => $lang_name):
                         $user_langs_ids = $stmt_user_langs->fetchAll(PDO::FETCH_COLUMN);
-                        $selected = in_array($lang_id, $user_langs_ids) ? 'selected' : '';
+                        $selected = in_array((int)$lang_id, $user_langs_ids) ? 'selected' : '';
                         ?>
                         <option value="<?php echo htmlspecialchars($lang_name); ?>" <?php echo $selected; ?>>
                             <?php echo htmlspecialchars($lang_name); ?>
