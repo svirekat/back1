@@ -84,7 +84,7 @@ function get_cookie_languages() {
     return isset($_COOKIE['languages']) ? unserialize($_COOKIE['languages']) : [];
 }
 // Обработка POST-запроса
-//if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = validate_form($_POST);
     if (empty($errors)) {
       try {
@@ -174,7 +174,7 @@ function get_cookie_languages() {
         header("Location: " . $_SERVER['PHP_SELF']);
         exit();
       }
- // }
+ }
 
 ?>
 
