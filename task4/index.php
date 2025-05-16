@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $gender = sanitize($_POST['gender']);
           $bio = sanitize($_POST['bio']);
           // Вставка данных в таблицу users
-          $stmt = $pdo->prepare("INSERT INTO users (fio, phone, email, dob, gender, bio) VALUES (?, ?, ?, ?, ?, ?)");  // Подготовленный запрос
+          $stmt = $pdo->prepare("INSERT INTO users1 (fio, phone, email, dob, gender, bio) VALUES (?, ?, ?, ?, ?, ?)");  // Подготовленный запрос
           $stmt->execute([$fio, $phone, $email, $dob, $gender, $bio]);
           $user_id = $pdo->lastInsertId(); //получаем id текущего пользователя
           // Вставка данных в таблицу users_languages
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt_lang->execute([$language]);
             $lang_result = $stmt_lang->fetch(PDO::FETCH_ASSOC);
             $lang_id = $lang_result['lang_id'];
-            $stmt_user_lang = $pdo->prepare("INSERT INTO users_languages (user_id, lang_id) VALUES (?, ?)");
+            $stmt_user_lang = $pdo->prepare("INSERT INTO users_languages1 (user_id, lang_id) VALUES (?, ?)");
             $stmt_user_lang->execute([$user_id, $lang_id]);
           }
           // Удаление cookies с ошибками (если были)
