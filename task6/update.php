@@ -72,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = validate_form($_POST);
     if (empty($errors)) {
         try {
+            $is_admin = $_SESSION['user_type'] === 'admin';
             if ($is_admin && isset($_GET['user_id'])) {
                 $user_id = $_GET['user_id']; 
             } else {
