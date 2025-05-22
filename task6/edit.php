@@ -1,10 +1,7 @@
 <?php
 session_start(); 
 require_once 'db_connection.php';
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+
 // Проверка прав доступа
 $is_admin = $_SESSION['user_type'] === 'admin';
 
