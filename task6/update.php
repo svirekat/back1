@@ -1,10 +1,7 @@
 <?php
 session_start();
 require_once 'db_connection.php';
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+
 function get_cookie_value($name) {
     return isset($_COOKIE[$name]) ? $_COOKIE[$name] : '';
 }
