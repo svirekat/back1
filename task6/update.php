@@ -72,7 +72,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = validate_form($_POST);
     if (empty($errors)) {
         try {
-            $user_id = $_SESSION['user_id'];
+            if ($is_admin && isset($_GET['user_id'])) {
+                $user_id = $_GET['user_id']; 
+            } else {
+                $user_id = $_SESSION['user_id']; 
+            }
             $fio = sanitize($_POST['fio']);
             $phone = sanitize($_POST['phone']);
             $email = sanitize($_POST['email']);
