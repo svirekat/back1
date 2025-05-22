@@ -184,7 +184,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Задание 5</title>
+    <title>Регистрация</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .error {
