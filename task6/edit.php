@@ -2,17 +2,24 @@
 session_start(); 
 require_once 'db_connection.php';
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php"); // Если не авторизован, перенаправляем на вход
+    header("Location: login.php");
     exit();
+}
+// Проверка прав доступа
+$is_admin = $_SESSION['user_type'] === 'admin';
+
+if ($is_admin && isset($_GET['user_id'])) {
+    $user_id = $_GET['user_id']; 
+} else {
+    $user_id = $_SESSION['user_id']; 
 }
 $user_id = $_SESSION['user_id'];
 $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
-// Получаем выбранные языки пользователя
 $stmt_user_langs = $pdo->prepare("SELECT lang_id FROM users_languages WHERE user_id = ?");
 $stmt_user_langs->execute([$user_id]);
-$user_langs_ids = $stmt_user_langs->fetchAll(PDO::FETCH_COLUMN); // Получаем массив lang_id
+$user_langs_ids = $stmt_user_langs->fetchAll(PDO::FETCH_COLUMN);
 // Получаем соответствие lang_id => lang_name из таблицы langs
 $stmt_langs = $pdo->query("SELECT lang_id, lang_name FROM langs");
 $lang_map = []; // Ассоциативный массив: lang_id => lang_name
@@ -31,6 +38,7 @@ while ($lang = $stmt_langs->fetch(PDO::FETCH_ASSOC)) {
 <h2>Редактирование данных</h2>
 <div id="hform">
 <form id="form" action="update.php" method="POST">
+    <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user['user_id']); ?>">
     <div>
         <label for="fio">ФИО:</label>
         <input type="text" id="fio" name="fio" value="<?php echo htmlspecialchars($user['fio']); ?>" required>
