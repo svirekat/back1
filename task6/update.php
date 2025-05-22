@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute([$fio, $phone, $email, $dob, $gender, $bio, $user_id]);
 
             $languages = isset($_POST['languages']) ? $_POST['languages'] : [];
-            $stmt_delete = $pdo->prepare("DELETE FROM users_languages WHERE lang_id = ?");
+            $stmt_delete = $pdo->prepare("DELETE FROM users_languages WHERE user_id = ?");
             $stmt_delete->execute([$user_id]);
             foreach ($languages as $language) {
                 $stmt_lang = $pdo->prepare("SELECT lang_id FROM langs WHERE lang_name = ?");
