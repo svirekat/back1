@@ -108,27 +108,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             setcookie('bio', '', time() - 3600);
             setcookie('languages', '', time() - 3600);
             setcookie('errors', '', time() - 3600);
-
-            echo "<body style='
-                margin-top: 20px;
-                font-family: sans-serif;
-                background-color: #e6e6fa;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                background-image: url('fon.jpg');
-                background-repeat: repeat;
-                background-size: 40%;>";
-            echo "<div id='greentext'>
-                <p style='color:green; font-size: larger;'> Данные успешно обновлены!</p>
-                </div>";
-            echo "<div> <a style='
-                text-decoration: none;
-                color: #581573;
-                font-size: medium;'
-                href='mainpage.html'>Вернуться на главную страницу</a> </div>";
-            echo "</body>";
-            
+            if ($is_admin) {
+                href='adminpage.html'>Вернуться на страницу администратора</a> </div>";
+            }
+            else {
+                echo "<body style='
+                    margin-top: 20px;
+                    font-family: sans-serif;
+                    background-color: #e6e6fa;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;"
+                echo "<div id='greentext'>
+                    <p style='color:green; font-size: larger;'> Данные успешно обновлены!</p>
+                    </div>";
+                echo "<div> <a style='
+                    text-decoration: none;
+                    color: #581573;
+                    font-size: medium;'
+                    href='mainpage.html'>Вернуться на главную страницу</a> </div>";
+                echo "</body>";
+            }
             exit();
         } 
         catch (PDOException $e) {
