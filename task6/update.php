@@ -73,8 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($errors)) {
         try {
             $is_admin = $_SESSION['user_type'] === 'admin';
-            if ($is_admin && isset($_GET['user_id'])) {
-                $user_id = $_GET['user_id']; 
+            if ($is_admin && isset($_POST['user_id'])) {
+                $user_id = $_POST['user_id']; 
             } else {
                 $user_id = $_SESSION['user_id']; 
             }
