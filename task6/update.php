@@ -163,7 +163,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
     <?php
-        // Вывод сообщения об успехе
         if (isset($_COOKIE['errors'])) {
             $errors = unserialize($_COOKIE['errors']);
             echo "<div class='error'>";
