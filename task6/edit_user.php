@@ -48,6 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit">Сохранить</button>
     </form>
 
-    <a href="admin_panel.php">Назад к панели администратора</a>
+    <a href="adminpage.php">Назад к панели администратора</a>
 </body>
 </html>
