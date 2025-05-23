@@ -41,14 +41,17 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             text-align: left;
         }
         a {
-            border: 2px solid #119f48;
+            border: 2px solid #073318;
             background-color: #64ed73;
             text-decoration: none;
+            color: #0e0e2d;
+            padding: 1px;
         }
         button {
             padding: 0;
             border: 2px solid #51091a;
             background-color: #eb5277;
+            padding: 1px;
         }
         .langbutton {
             position: absolute;
