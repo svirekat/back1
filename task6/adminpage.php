@@ -50,6 +50,16 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             border: 2px solid #51091a;
             background-color: #eb5277;
         }
+        .container {
+            position: relative;
+        }
+        .langbutton {
+        position: absolute; 
+        top: 10px;
+        right: 10px;
+        }
+
+
     </style>
     <script>
         function confirmDelete(userId) {
@@ -62,7 +72,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
 <h1>Страница администратора</h1>
-
+<a href="stats.php" class="langbutton">Статистика ЯП</a>
 <table>
     <tr>
         <th>ID</th>
