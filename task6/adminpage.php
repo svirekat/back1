@@ -33,14 +33,22 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         table {
             width: 100%;
             border-collapse: collapse;
+            background-color: #c2c2e5;
         }
         th, td {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
         }
+        a {
+            border: 2px solid #119f48;
+            background-color: #64ed73;
+            text-decoration: none;
+        }
         button {
             padding: 0;
+            border: 2px solid #51091a;
+            background-color: #eb5277;
         }
     </style>
     <script>
