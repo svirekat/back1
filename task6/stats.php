@@ -51,8 +51,8 @@ foreach ($lang_stats as $row) {
                 datasets: [{
                     label: 'Количество пользователей',
                     data: <?= json_encode($data) ?>, // Данные
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(174, 137, 211)',
+                    borderColor: 'rgba(60, 32, 87)',
                     borderWidth: 1
                 }]
             },
