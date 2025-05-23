@@ -33,8 +33,12 @@ foreach ($lang_stats as $row) {
     <link rel="stylesheet" href="styles.css">
     <style>
         canvas {
-            max-width: 600px;
+            max-width: 700px;
             margin: auto;
+        }
+        #langChart {
+            height: 100%;
+            width: 100%;
         }
     </style>
 </head>
