@@ -76,6 +76,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
 <h1>Страница администратора</h1>
+<a href="mainpage.html" class="exit">Выйти</a>
 <a href="stats.php" class="langbutton">Статистика ЯП</a>
 <table>
     <tr>
