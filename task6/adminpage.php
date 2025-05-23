@@ -53,6 +53,11 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             background-color: #eb5277;
             padding: 1px;
         }
+        .exit {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
         .langbutton {
             position: absolute;
             top: 10px;
