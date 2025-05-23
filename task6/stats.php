@@ -30,7 +30,6 @@ foreach ($lang_stats as $row) {
 <head>
     <meta charset="UTF-8">
     <title>Статистика ЯП</title>
-    //Подключение библиотеки Chart.js для построения диаграммы
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
     <style>
         canvas {
