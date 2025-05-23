@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     text-decoration: none;
                     color: #581573;
                     font-size: medium;'
-                    href='adminpage.html'>Вернуться на страницу администратора</a> </div>";
+                    href='adminpage.php'>Вернуться на страницу администратора</a> </div>";
                 echo "</body>";
             }
             else {
