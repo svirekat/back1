@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'db_connection.php';
+print_r($_SESSION); // Проверка, что в сессии есть данные
 
 // Проверяем, авторизован ли пользователь
 if (!isset($_SESSION['user_id'])) {
