@@ -39,6 +39,9 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             padding: 8px;
             text-align: left;
         }
+        button {
+            padding: 0;
+        }
     </style>
     <script>
         function confirmDelete(userId) {
