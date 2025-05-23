@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([$login]);
         $admin = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($admin && password_verify($password, $admin['password'])) {
-            $_SESSION['admin_id'] = $admin['admin_id'];
+            $_SESSION['user_id'] = $admin['admin_id'];
             $_SESSION['user_type'] = 'admin'; // тип пользователя - админ
             header("Location: adminpage.php"); // страница администратора
             exit();
