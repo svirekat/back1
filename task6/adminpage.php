@@ -50,9 +50,6 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             border: 2px solid #51091a;
             background-color: #eb5277;
         }
-        .container {
-            position: relative;
-        }
         .langbutton {
             position: absolute;
             top: 10px;
@@ -76,9 +73,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
 <h1>Страница администратора</h1>
-<div class='container'>
-    <a href="stats.php" class="langbutton">Статистика ЯП</a>
-</div>
+<a href="stats.php" class="langbutton">Статистика ЯП</a>
 <table>
     <tr>
         <th>ID</th>
