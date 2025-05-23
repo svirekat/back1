@@ -57,6 +57,9 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             position: absolute;
             top: 10px;
             left: 10px;
+            border: 2px solid #3c2057;
+            padding: 8px;
+            border-radius: 5%;
         }
         .langbutton {
             position: absolute;
