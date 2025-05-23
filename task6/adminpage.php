@@ -28,6 +28,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Страница администратора</title>
+    <link rel="stylesheet" href="styles.css"> 
     <style>
         table {
             width: 100%;
