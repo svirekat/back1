@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 background-color: #e6e6fa;
                 display: flex;
                 flex-direction: column;
-                align-items: center;"
+                align-items: center;>";
             echo "<div id='greentext'>
                 <p style='color:green; font-size: larger;'> Данные успешно обновлены!</p>
                 </div>";
