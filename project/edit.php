@@ -5,7 +5,7 @@ require 'db.php';
 
 // Перенаправляем неавторизованных пользователей на страницу входа
 if (empty($_SESSION['user_id'])) {
-    header('Location: /project/login.php');
+    header("Location: login.php");
     exit;
 }
 
@@ -171,11 +171,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($isAJAX) {
         echo json_encode([
             'success'      => true,
-            'redirect_url' => '/project/edit.php?success=1',
+            'redirect_url' => 'edit.php?success=1',
         ]);
         exit;
     }
-    header('Location: /project/edit.php?success=1');
+    header("Location: edit.php?success=1");
     exit;
 }
 
