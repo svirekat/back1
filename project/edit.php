@@ -12,7 +12,7 @@ if (empty($_SESSION['user_id'])) {
 // Готовим запрос для получения текущих данных заявки
 $stmt = $pdo->prepare(
     "SELECT u.id AS user_id, a.* 
-     FROM users u
+     FROM userspr u
      JOIN application a ON u.application_id = a.id
      WHERE u.id = :uid"
 );
