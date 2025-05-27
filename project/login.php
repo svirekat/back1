@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && password_verify($input['password'], $user['password_hash'])) {
         $_SESSION['user_id'] = $user['id'];
         setcookie("username", $input['username'], time() + 3600, '/'); // Установка cookie на 1 час
-        header('Location: /project/edit.php'); 
+        header('Location: edit.php'); 
         exit;
     } else {
         $msg = 'Неверный логин или пароль.';
