@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Доступ к редактированию</title>
     <link rel='stylesheet' href='profileloginstyle.css'>
-    <script defer src="/project/login.js"></script>
+    <script defer src="login.js"></script>
 </head>
 <body>
   <div class="page-container">
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </form>
 
-    <form class="register-form" action="/project/index.php" method="get">
+    <form class="register-form" action="index.php" method="get">
       <p class="register-prompt">Еще не зарегистрированы?</p>
       <div class="form-actions">
         <input type="submit" value="Зарегистрироваться" class="buttons register-button">
