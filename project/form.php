@@ -145,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         setcookie('password', $password, time()+3600, '/');
         // Сохраняем хеш пароля
         $u = $pdo->prepare(
-            "INSERT INTO users (username, password_hash, application_id)
+            "INSERT INTO userspr (username, password_hash, application_id)
              VALUES (:u,:h,:aid)"
         );
         $u->execute([
