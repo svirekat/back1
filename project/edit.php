@@ -125,11 +125,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($isAJAX) {
             echo json_encode([
                 'success'      => false,
-                'redirect_url' => '/project/edit.php',
+                'redirect_url' => 'edit.php',
             ]);
             exit;
         }
-        header('Location: /project/edit.php');
+        header('Location: edit.php');
         exit;
     }
 
