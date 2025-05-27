@@ -36,7 +36,7 @@ CREATE TABLE application_languages (
     FOREIGN KEY (language_id) REFERENCES languages(id)
 );
 
-CREATE TABLE users (
+CREATE TABLE userspr (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
