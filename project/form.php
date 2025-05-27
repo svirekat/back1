@@ -159,11 +159,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($isAJAX) {
             echo json_encode([
                 'success'      => true,
-                'redirect_url' => '/project/form.php',
+                'redirect_url' => 'form.php',
             ]);
             exit;
         }
-        header('Location: /project/form.php');
+        header('Location: form.php');
         exit;
     } catch (Exception $e) {
         $pdo->rollBack();
