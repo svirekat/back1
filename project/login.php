@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = $json ?? $_POST; // Использовать JSON или POST-данные
 
     // Поиск пользователя по логину
-    $stmt = $pdo->prepare("SELECT id, password_hash FROM users WHERE username = :user");
+    $stmt = $pdo->prepare("SELECT id, password_hash FROM userspr WHERE username = :user");
     $stmt->execute([':user' => $input['username']]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
