@@ -18,6 +18,6 @@ setcookie('contract',   '', time() - 3600, '/');
 setcookie('username',        '', time() - 3600, '/');
 
 // Перенаправляем пользователя на страницу входа
-header('Location: /project/login.php');
+header('Location: login.php');
 exit;
 ?>
